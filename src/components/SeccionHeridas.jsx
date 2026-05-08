@@ -1,5 +1,10 @@
 // src/components/sistema/SeccionHeridas.jsx
-
+const danio = [
+  { d: '1–2', tipo: 'secondary', label: 'Aguanta',         res: 'El traje absorbe el golpe sin consecuencias.' },
+  { d: '3', tipo: 'warning',   label: 'Daño superficial',res: 'Perdés 2 SP máximos.' },
+  { d: '4',   tipo: 'danger',    label: 'Sección dañada',  res: 'Perdés 3 SP y el bono pasivo en esa zona corporal.' },
+  { d: '5-6',   tipo: 'danger',    label: 'Falla crítica',   res: 'traje desactivado' },
+];
 const heridas = [
   { d: '1–2',  tipo: 'info',    h: 'Golpe aturdidor',     ei: 'Aturdido 1 ronda',                                ec: 'Ninguno' },
   { d: '3–4',  tipo: 'info',    h: 'Corte profundo',      ei: 'Perdés 2 HP por ronda',                           ec: 'Desventaja en Fuerza hasta curación' },
@@ -8,6 +13,44 @@ const heridas = [
   { d: '9–10', tipo: 'danger',  h: 'Hueso roto',          ei: 'Zona afectada inutilizable (brazo/pierna al azar)',ec: 'Penalidad −4 a acciones que involucren esa zona' },
   { d: '11',   tipo: 'danger',  h: 'Trauma craneal',      ei: 'Voluntad CD 15 para actuar cada turno',           ec: 'Desventaja en Inteligencia y Percepción' },
   { d: '12',   tipo: 'danger',  h: 'Herida crítica',      ei: 'Caída inconsciente, perdés 1d6 HP/ronda',         ec: 'Sin atención en 3 rondas: muerte' },
+];
+
+const extremidades = [
+  {
+    d: '1',
+    tipo: 'danger',
+    zona: 'Cabeza',
+  },
+  {
+    d: '2–3',
+    tipo: 'warning',
+    zona: 'Torso',
+  },
+  {
+    d: '4',
+    tipo: 'info',
+    zona: 'Brazo izquierdo',
+  },
+  {
+    d: '5',
+    tipo: 'info',
+    zona: 'Brazo derecho',
+  },
+  {
+    d: '6',
+    tipo: 'warning',
+    zona: 'Pierna izquierda',
+  },
+  {
+    d: '7',
+    tipo: 'warning',
+    zona: 'Pierna derecha',
+  },
+  {
+    d: '8',
+    tipo: 'danger',
+    zona: 'Impacto crítico',
+  },
 ];
 
 const triggers = [
@@ -62,8 +105,85 @@ export default function SeccionHeridas() {
           ))}
         </div>
 
+
+
+          <div className="row g-4 mb-5 align-items-stretch">
+            {/* DAÑO AL TRAJE */}
+            <div className="col-12 col-xl-6">
+              <div className="system-label mb-3">DAÑO AL TRAJE (1d6)</div>
+              <div className="card p-3 h-100" style={{ background: 'rgba(220,53,69,.06)', border: '1px solid rgba(220,53,69,.2)' }}>
+                <p className="terminal-text mb-3" style={{ fontSize: '.8rem' }}>
+                  // Se activa si recibís más de 15 de daño en un solo golpe
+                </p>
+                <div className="row g-3">
+                  {danio.map((d, i) => (
+                    <div key={i} className="col-12 col-sm-6">
+                      <div className="d-flex gap-3 align-items-start">
+                        <span className={`badge bg-${d.tipo} bg-opacity-25 text-${d.tipo} fs-6 px-3`}
+                              style={{ minWidth: '52px', textAlign: 'center' }}>{d.d}</span>
+                        <div>
+                          <div className="fw-bold mb-1" style={{ fontSize: '.85rem' }}>{d.label}</div>
+                          <div className="text-secondary" style={{ fontSize: '.8rem' }}>{d.res}</div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          
+        {/* LOCALIZACIÓN DE IMPACTO */}
+
+
+  <div className="col-12 col-xl-6">
+    <div className="system-label mb-3">LOCALIZACIÓN DE IMPACTO (1d8)</div>
+
+    <div
+      className="card p-3 h-100"
+      style={{
+        background: 'rgba(220,53,69,.06)',
+        border: '1px solid rgba(220,53,69,.2)'
+      }}
+    >
+      <p className="terminal-text mb-3" style={{ fontSize: '.8rem' }}>
+        // Se utiliza cuando el atacante no especifica la zona del impacto
+      </p>
+
+      <div className="row g-3">
+        {extremidades.map((e, i) => (
+          <div key={i} className="col-6 col-sm-6">
+            <div className="d-flex gap-3 align-items-start">
+
+              <span
+                className={`badge bg-${e.tipo} bg-opacity-25 text-${e.tipo} fs-6 px-3`}
+                style={{
+                  minWidth: '52px',
+                  textAlign: 'center'
+                }}
+              >
+                {e.d}
+              </span>
+
+              <div>
+                <div
+                  className="fw-bold"
+                  style={{ fontSize: '.85rem' }}
+                >
+                  {e.zona}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
         {/* TABLA DE HERIDAS */}
-        <div className="system-label mb-3">TABLA DE HERIDAS (1d12)</div>
+        
+        <div className="system-label mb-3 mt-3">TABLA DE HERIDAS (1d12)</div>
         <div className="table-responsive mb-5">
           <table className="table table-dark table-borderless align-middle"
                  style={{ borderCollapse: 'separate', borderSpacing: '0 4px' }}>

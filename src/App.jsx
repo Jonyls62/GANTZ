@@ -3,6 +3,7 @@ import BootSequence from './components/BootSequence'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import SistemaPage from './pages/SistemaPage'
+import EquipoPage from './pages/EquipoPage'
 import Navbar from './components/Navbar'
 
 export default function App() {
@@ -20,7 +21,8 @@ export default function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/sistema" element={<SistemaPage />} />
+            <Route path="/sistema" element={<SistemaPage />} /> 
+            <Route path='/equipo' element={<EquipoPage />} />
           </Routes>
         </BrowserRouter>
         </>
