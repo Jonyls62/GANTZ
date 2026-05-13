@@ -2,13 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCshkb_0NU-Yof7x1_R8MLDCCo2dZbTiQU",
-  authDomain: "gantz-rpg.firebaseapp.com",
-  projectId: "gantz-rpg",
-  storageBucket: "gantz-rpg.firebasestorage.app",
-  messagingSenderId: "242939584712",
-  appId: "1:242939584712:web:cff76b29efaba090fe85fd",
-  measurementId: "G-7WF1Q4QSHG"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
