@@ -20,6 +20,7 @@ function CharacterList({ refreshKey }) {
         setLoading(false);
       }
     };
+
     fetch();
   }, [refreshKey]);
 
@@ -38,12 +39,12 @@ function CharacterList({ refreshKey }) {
     );
 
   return (
-    <div className="container py-5">
+    <div className="container-fluid container-md py-5 px-0 px-md-3">
       <h1 className="text-center text-danger mb-5">Seleccionar Personaje</h1>
 
-      <div className="row g-4 justify-content-center">
+      <div className="row g-0 g-md-4 justify-content-center mx-0">
         {characters.map((char, i) => (
-          <div key={char.id} className="col-8 col-md-4 col-lg-3">
+          <div key={char.id} className="col-12 col-md-4 col-lg-3 px-0 px-md-2">
             <CharacterCard
               char={char}
               index={i}
