@@ -1,8 +1,8 @@
 // src/pages/EquipoPage.jsx
 import { useState } from 'react';
-import SeccionArmasBase       from '../components/SeccionArmasBase';
-import SeccionArmasEspeciales from '../components/SeccionArmasEspeciales';
-import SeccionArmasMedia from '../components/SeccionArmasMedia';
+import SeccionArmasBase       from '../components/armas/SeccionArmasBase';
+import SeccionArmasEspeciales from '../components/armas/SeccionArmasEspeciales';
+import SeccionArmasMedia from '../components/armas/SeccionArmasMedia';
 
 export default function EquipoPage() {
   const [active, setActive] = useState('base');

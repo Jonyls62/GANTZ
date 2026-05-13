@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import SeccionBase    from '../components/SeccionBase';
-import SeccionTraje   from '../components/SeccionTraje';
-import SeccionTension from '../components/SeccionTension';
-import SeccionPuntos  from '../components/SeccionPuntos';
-import SeccionHeridas from '../components/SeccionHeridas';
+import SeccionBase    from '../components/sistema/SeccionBase';
+import SeccionTraje   from '../components/sistema/SeccionTraje';
+import SeccionTension from '../components/sistema/SeccionTension';
+import SeccionPuntos  from '../components/sistema/SeccionPuntos';
+import SeccionHeridas from '../components/sistema/SeccionHeridas';
 
 export default function SistemaPage() {
   const [active, setActive] = useState("base"); // sección por defecto

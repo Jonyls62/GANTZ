@@ -1,7 +1,9 @@
-// src/pages/Home.jsx
+import { useState } from "react";
 
 export default function Home() {
+   const [showSpoiler, setShowSpoiler] = useState(false);
   return (
+    
     <>
       {/* HERO */}
       <section className="hero-section d-flex align-items-center">
@@ -114,11 +116,11 @@ export default function Home() {
             <div className="col-md-6 col-xl-3">
               <div className="card gantz-feature-card h-100 p-4">
 
-                <div className="feature-icon mb-4">
+                <div className="feature-icon mb-2">
                   ◉
                 </div>
 
-                <h4 className="mb-3">
+                <h4 className="mb-2">
                   Tecnología Gantz
                 </h4>
 
@@ -134,11 +136,11 @@ export default function Home() {
             <div className="col-md-6 col-xl-3">
               <div className="card gantz-feature-card h-100 p-4">
 
-                <div className="feature-icon mb-4">
+                <div className="feature-icon mb-2">
                   ☣
                 </div>
 
-                <h4 className="mb-3">
+                <h4 className="mb-2">
                   Amenazas Alienígenas
                 </h4>
 
@@ -154,11 +156,11 @@ export default function Home() {
             <div className="col-md-6 col-xl-3">
               <div className="card gantz-feature-card h-100 p-4">
 
-                <div className="feature-icon mb-4">
+                <div className="feature-icon mb-2">
                   ⌬
                 </div>
 
-                <h4 className="mb-3">
+                <h4 className="mb-2">
                   Decisiones Extremas
                 </h4>
 
@@ -175,14 +177,12 @@ export default function Home() {
       </section>
 
       {/* QUOTE */}
-      <section className="py-5">
+      <section className="py-1">
         <div className="container">
 
           <div className="quote-panel text-center">
 
-            <div className="quote-symbol mb-4">
-              "
-            </div>
+
 
             <h2
               className="display-6 mx-auto"
@@ -195,56 +195,67 @@ export default function Home() {
               Lo que hagas ahora depende de Gantz.
             </h2>
 
-            <div className="terminal-text mt-4">
-              // MISSION START
-            </div>
-
+        
           </div>
 
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-5">
+      <section className="py-3">
         <div className="container">
 
-          <div className="card p-5 text-center">
+          <div className="card p-2 text-center">
 
-            <div className="system-label mb-3">
-              READY
-            </div>
-
-            <h2 className="display-5 mb-4">
-              PREPÁRATE PARA LA MISIÓN
-            </h2>
-
+         <h5 className="terminal-text mt-2 d-flex justify-content-center">
+              // GANTZ
+            </h5>
             <p
-              className="text-secondary fs-5 mx-auto mb-5"
-              style={{
-                maxWidth: '700px',
-              }}
+              className="text-secondary fs-5 mx-auto mb-2"
+              
             >
-              Consulta reglas, administra personajes,
-              revisa armamento y organiza sesiones
-              desde una interfaz inspirada en Gantz:O.
-            </p>
+Sistema Gantz RPG es un juego de rol de horror y supervivencia basado en el motor de All Flesh Must Be Eaten (Unisystem), adaptado para usar tiradas de d20. Los jugadores interpretan a personas que despiertan sin explicación en un departamento desconocido, junto a otros extraños, con una misteriosa esfera negra perfecta en el centro de la sala. Nadie recuerda bien cómo llegó. Nadie sabe qué es esa cosa. Y la puerta no abre. Lo que viene después tendrán que descubrirlo — y sobrevivirlo. El sistema fusiona el sistema de heridas permanentes de Mothership RPG para mantener una letalidad constante, e incorpora los Tokens de Tensión para darle a cada jugador agencia narrativa real sobre los momentos más críticos. El resultado es un juego donde los recursos son siempre escasos, las decisiones pesan, y cada sesión puede cambiar todo.            </p>      
 
-            <div className="d-flex justify-content-center gap-3 flex-wrap">
+              
+              <a href="#" className="text-danger" onClick={(e) => {e.preventDefault();setShowSpoiler(!showSpoiler);
+        }}>¡Spoiler Alert!</a>
+              {showSpoiler && (
+                
+        <div className="mt-3 p-1 border border-danger rounded bg-dark text-secondary ">
+          <h6 className="text-danger">
+            ⚠ Spoiler — leer solo si querés saber más
+          </h6>
 
-              <button className="btn btn-danger btn-lg px-5">
-                Comenzar
-              </button>
+          <p className="mb-2 ">
+            Los personajes están muertos. Cada uno murió de manera diferente,
+            un accidente, suicidio, asesinato o algo que no debería haber pasado y
+            fueron reclutados por Gantz sin pedir permiso.
+          </p>
 
-              <button className="btn btn-outline-danger btn-lg px-5">
-                Base de Datos
-              </button>
+          <p className="mb-2 ">
+            La esfera, conocida como Gantz, los envía en misiones para cazar y
+            eliminar aliens que se ocultan entre la población.
+            Con cada misión acumulan puntos. Con suficientes puntos, pueden
+            recuperar su vida.
+          </p>
 
+          <p className="mb-0">
+            Pero nadie les dijo que sería fácil. Nadie les dijo qué pasa
+            realmente si fallan. Y nadie les dijo por qué Gantz los eligió a
+            ellos.
+          </p>
+        </div>
+     
+              )}
+        
+        </div>
+              
+          <div className="terminal-text mt-4 d-flex justify-content-center">
+              // MISSION START
             </div>
-
-          </div>
-
         </div>
       </section>
+
     </>
   )
 }
