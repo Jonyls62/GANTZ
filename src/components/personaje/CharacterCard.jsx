@@ -178,7 +178,7 @@ export default function CharacterCard({ char, index = 0 }) {
           <div
             style={{
               fontSize: 11,
-              color: "#3a3a3a",
+              color: "rgb(226, 224, 240)",
               fontStyle: "italic",
               marginBottom: 12,
               lineHeight: 1.4,
