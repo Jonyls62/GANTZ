@@ -95,16 +95,23 @@ export default function CharacterDatos({ data, update }) {
         borderRadius: 8,
       }}
     >
-      <div className="mb-3">
-        <MicroLabel>Traumas</MicroLabel>
-        <TokenDots
-          value={data.traumas ?? 0}
-          max={3}
-          color="rgb(224, 60, 60)"
-          onChange={(v) => update("traumas", v)}
-        />
-      </div>
+      <div className="d-flex gap-3 align-items-start  mb-3">
+        {/* TRAUMAS */}
+        <div>
+          <MicroLabel>Traumas</MicroLabel>
+          <TokenDots
+            value={data.traumas ?? 0}
+            max={3}
+            color="rgb(224, 60, 60)"
+            onChange={(v) => update("traumas", v)}
+          />
+        </div>
 
+        {/* COMO MURIÓ */}
+        <div className="flex-fill">
+          {campoEditable("Cómo murió", "muerteComo")}
+        </div>
+      </div>
       {campoEditable("Ventajas / Desventajas", "ventajas")}
       {campoEditable("Habilidades", "habilidades")}
       {campoEditable("Personalidad / Historia", "personalidad")}
